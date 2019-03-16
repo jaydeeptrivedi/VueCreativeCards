@@ -6,9 +6,9 @@
             <cc-text-input v-on:displayTextChanged="textBoxValue3=$event"></cc-text-input>
         </div>
         <div class="card col-sm-6 card-display">
-            <cc-text-output v-bind:displayText="textBoxValue1"></cc-text-output>
-            <cc-text-output v-bind:displayText="textBoxValue2"></cc-text-output>
-            <cc-text-output v-bind:displayText="textBoxValue3"></cc-text-output>
+            <cc-text-output v-bind:displayText="textBoxValue1" v-bind:containerHeight="130"></cc-text-output>
+            <cc-text-output v-bind:displayText="textBoxValue2" v-bind:containerHeight="130"></cc-text-output>
+            <cc-text-output v-bind:displayText="textBoxValue3" v-bind:containerHeight="130"></cc-text-output>
         </div>
     </div>
 </template>

@@ -16,13 +16,5 @@ export default {
 </script>
 
 <style>
-.edit-area{
-    background-color: #d2f9f9;
-    height: 800px;
-    padding: 20px;
-}
-.card-display{
-    height: 800px;
-    padding: 20px;
-}
+
 </style>

@@ -1,16 +1,39 @@
 <<template>
     <div>
-        <p>{{displayText}}</p>
-        
-    </div>
+        <p v-bind:style="styleObject">{{displayText}}</p>     
+    </div> 
 </template>
 
 <script>
 export default {
-    props:['displayText']
+    props:{
+        displayText: [String],
+        containerHeight: {
+            type: Number,
+            default: 200
+        }
+    },
+    computed: {
+        styleObject: function(){
+            return {
+                height: this.containerHeight + 'px'
+            }
+        }
+    },
 }
 </script>
 
-<style>
-    
+<style scoped>
+p {
+    font-family: 'Tangerine', cursive;
+    font-size: 42px;
+    line-height: 42px;
+    color: #4d4d4d;
+    text-shadow: 2px 2px 2px #aaa;
+    margin: 5px 0;
+    border: 1px dotted grey;
+    white-space: pre-line;
+    overflow: hidden;
+}
+  
 </style>
