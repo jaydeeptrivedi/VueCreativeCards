@@ -6,7 +6,7 @@
         <keep-alive>
           <component v-bind:is="currentPage"></component>
         </keep-alive>
-        <footer>
+        <cc-footer>
           <p class="text-center">&copy; {{appName}}</p>
           <nav>
             <ul class="nav justify-content-center">
@@ -15,13 +15,14 @@
               <li class="nav-item"><a class="nav-link">Contact Us</a></li>
             </ul>
           </nav>
-        </footer>
+        </cc-footer>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import FirebaseConfig from './firebaseConfig.js'
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
 import CardFront from './components/card/Front.vue'
@@ -32,7 +33,7 @@ import InsideRight from './components/card/InsideRight.vue'
 export default{
   components:{
     navHeader: Header,
-    footer: Footer,
+    ccFooter: Footer,
     cardFront: CardFront,
     cardBack: CardBack,
     insideLeft: InsideLeft,
