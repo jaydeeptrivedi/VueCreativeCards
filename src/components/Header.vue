@@ -7,11 +7,18 @@
         <li class="nav-item"><a class="nav-link" v-on:click="pageSelected='insideRight'">Inside Right</a></li>
         <li class="nav-item"><a class="nav-link" v-on:click="pageSelected='cardBack'">Back</a></li>
     </ul>
+    <hr>
+    <cc-card-progress></cc-card-progress>
 </div>  
 </template>
 
 <script>
+import CardProgress from './card/CardProgress.vue'
+
 export default {
+    components:{
+        ccCardProgress:CardProgress
+    },
     data: function(){
         return {
             pageSelected:''

@@ -4,6 +4,7 @@
             <cc-text-input v-on:displayTextChanged="textBoxValue1=$event"></cc-text-input>
             <cc-text-input v-on:displayTextChanged="textBoxValue2=$event"></cc-text-input>
             <cc-text-input v-on:displayTextChanged="textBoxValue3=$event"></cc-text-input>
+            <cc-section-completed></cc-section-completed>
         </div>
         <div class="card col-sm-6 card-display">
             <cc-text-output v-bind:displayText="textBoxValue1" v-bind:containerHeight="240"></cc-text-output>
@@ -17,6 +18,7 @@
 
 import TextInput from './TextInput.vue'
 import TextOutput from './TextOutput.vue'
+import SectionCompleted from './SectionCompleted.vue'
 
 export default {
     data: function(){
@@ -28,7 +30,8 @@ export default {
     },
     components:{
         ccTextInput:TextInput,
-        ccTextOutput:TextOutput
+        ccTextOutput:TextOutput,
+        ccSectionCompleted:SectionCompleted
     }
 }
 </script>
