@@ -1,5 +1,7 @@
 <template>
-    <div class="imageContainer" v-bind:style="styleObject">
+    <div class="imageContainer" v-bind:style="styleObject" v-on:mouseover="showOptions=true" v-on:mouseleave="showOptions=false">
+
+        <button type="button" class="btn btn-outline-danger btn-sm" v-show="showOptions">Remove Image</button>  
         <img id='outputImage'>{{displayImage}}
     </div>
 </template>
@@ -15,6 +17,11 @@ export default {
         containerHeight: {
             type: Number,
             default: 200
+        }
+    },
+    data: function(){
+        return {
+            showOptions: false
         }
     },
     computed: {
@@ -42,5 +49,10 @@ export default {
     border: 1px dotted;
     overflow: hidden;
     margin: 5px 0;
+}
+
+button{
+    position: absolute;
+    z-index: 1;
 }
 </style>
