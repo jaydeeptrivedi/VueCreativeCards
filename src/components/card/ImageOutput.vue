@@ -1,7 +1,7 @@
 <template>
     <div class="imageContainer" v-bind:style="styleObject" v-on:mouseover="showOptions=true" v-on:mouseleave="showOptions=false">
 
-        <button type="button" class="btn btn-outline-danger btn-sm" v-show="showOptions">Remove Image</button>  
+        <button type="button" class="btn btn-outline-danger btn-sm" v-show="showOptions" v-on:click="clearImageProp">Remove Image</button>  
         <img id='outputImage'>{{displayImage}}
     </div>
 </template>
@@ -17,7 +17,8 @@ export default {
         containerHeight: {
             type: Number,
             default: 200
-        }
+        },
+        clearImageProp: Function
     },
     data: function(){
         return {
@@ -33,11 +34,19 @@ export default {
     },
     watch:{
         displayImage: function(){
-            var storageRef = Firebase.storage().ref('user_uploads/'+this.displayImage);
-            storageRef.getDownloadURL().then(function(url){
-                var img = document.getElementById('outputImage');
-                img.src=url
-            })
+            if(this.displayImage=="") 
+            {
+                document.getElementById('outputImage').src="";
+            }
+            else
+            {
+
+                var storageRef = Firebase.storage().ref('user_uploads/'+this.displayImage);
+                storageRef.getDownloadURL().then(function(url){
+                    var img = document.getElementById('outputImage');
+                    img.src=url
+                })
+            }
         }
     }
     

@@ -8,7 +8,7 @@
         </div>
         <div class="card col-sm-6 card-display">
             <cc-text-output v-bind:displayText="textBoxValue1" v-bind:containerHeight="130"></cc-text-output>
-            <cc-image-output v-bind:displayImage="imageName" v-bind:containerHeight="350"></cc-image-output>
+            <cc-image-output v-bind:displayImage="imageName" v-bind:containerHeight="350" v-bind:clearImageProp="clearImage"></cc-image-output>
             <cc-text-output v-bind:displayText="textBoxValue2" v-bind:containerHeight="130"></cc-text-output>
             <cc-text-output v-bind:displayText="textBoxValue3" v-bind:containerHeight="130"></cc-text-output>
         </div>
@@ -34,6 +34,11 @@ export default {
             textBoxValue2:"",
             textBoxValue3:"",
             imageName:""
+        }
+    },
+    methods:{
+        clearImage: function(){
+            this.imageName='';
         }
     }
 }
