@@ -1,5 +1,7 @@
 <<template>
     <div v-on:mouseover="showOptions=true" v-on:mouseleave="showOptions=false">
+        <transition name="fade">
+        
         <form class="small" v-show="showOptions">
             <label for="selectBox">Font size:</label>
             <select class="small" id="selectBox" v-model="setFontSize">
@@ -34,6 +36,7 @@
                 </label>
             </div>
         </form>
+         </transition>
         <p v-bind:style="styleObject" :class="{bold:setBold, italic:setItalic}">{{displayText}}</p>     
     </div> 
 </template>
@@ -100,4 +103,5 @@ form{
 select{
     height: 40%;
 }
+
 </style>

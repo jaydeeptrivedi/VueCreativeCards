@@ -1,7 +1,10 @@
 <template>
     <div class="imageContainer" v-bind:style="styleObject" v-on:mouseover="showOptions=true" v-on:mouseleave="showOptions=false">
 
-        <button type="button" class="btn btn-outline-danger btn-sm" v-show="showOptions" v-on:click="clearImageProp">Remove Image</button>  
+        <transition name="scale">
+                <button type="button" class="btn btn-outline-danger btn-sm" v-show="showOptions" v-on:click="clearImageProp">Remove Image</button>
+        </transition>
+          
         <img id='outputImage'>{{displayImage}}
     </div>
 </template>
@@ -74,4 +77,13 @@ button{
 img{
     width:130%
 }
+
+.scale-enter-active{
+    animation: scale-in 0.5s;
+}
+
+.scale-leave-active{
+    animation: scale-out 0.5s;
+}
+
 </style>

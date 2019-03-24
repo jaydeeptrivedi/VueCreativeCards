@@ -3,9 +3,21 @@
     <div class="row">
       <div class="col-sm-12">
         <nav-header v-on:pageWasChanged="currentPage=$event"></nav-header>
-        <keep-alive>
-          <component v-bind:is="currentPage"></component>
-        </keep-alive>
+        <div id="instructions" class="text-center italic">
+          <div class="row">
+              <div class="col-sm-6">
+                <p><em>&larr; Make changes in the edit card area below</em></p>
+              </div>
+               <div class="col-sm-6">
+                <p><em>And they will show on the card &rarr;</em></p>
+              </div>
+          </div>
+        </div>
+        <transition name="fade" mode="out-in" v-on:enter="enter">
+          <keep-alive>
+            <component v-bind:is="currentPage"></component>
+          </keep-alive>
+        </transition>
         <cc-footer>
           <p class="text-center">&copy; {{appName}}</p>
           <nav>
@@ -44,6 +56,11 @@ export default{
       currentPage: 'cardFront',
       appName: 'Creative Cards'
     }
+  },
+  methods:{
+    enter: function(el){
+      document.getElementById("instructions").style.display="none";
+    }
   }
 }
 </script>
@@ -56,5 +73,27 @@ body{
 
 a{
   cursor: pointer;
+}
+
+.fade-enter, .fade-leave-to{
+    opacity: 0;
+}
+
+.fade-enter-active{
+    transition: 0.5s;
+}
+
+.fade-leave-active{
+    transition: 0.5s;
+}
+
+@keyframes scale-in {
+    0% {transform: scale(0);}
+    100% {transform: scale(1);}
+}
+
+@keyframes scale-out {
+    0% {transform: scale(1);}
+    100% {transform: scale(0);}
 }
 </style>
